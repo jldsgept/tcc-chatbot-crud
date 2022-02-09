@@ -2,42 +2,42 @@ const express = require('express');
 const router = express.Router();
 
 const crud = require('./controllers/crud');
-const conexion = require('./database/db');
+const pool = require('./database/db');
 
-router.get('/', (req, res)=>{     
-    conexion.query('SELECT * FROM errores',(error, results)=>{
-        if(error){
-            throw error;
-        } else {                       
-            res.render('index.ejs', {results:results});            
-        }   
-    })
+router.get('/', async (req, res) => {     
+    let rs 
+    try{
+        rs = await pool.query('SELECT * FROM errores')
+        res.render('index.ejs', {results:rs.rows});
+    }catch(e){
+        console.log(e)
+    }
 })
 
 router.get('/create', (req,res)=>{
     res.render('create');
 })
 
-router.get('/edit/:id', (req,res)=>{    
+router.get('/edit/:id', async (req,res)=>{    
     const id = req.params.id;
-    conexion.query('SELECT * FROM errores WHERE id=?',[id] , (error, results) => {
-        if (error) {
-            throw error;
-        }else{            
-            res.render('edit.ejs', {registro_error:results[0]});            
-        }        
-    });
+    let rs
+    try{
+        rs = await pool.query(`SELECT * FROM errores WHERE id = ${id}`)
+        res.render('edit', {registro_error: rs.rows[0]});
+    }catch(e){
+        console.log(e)
+    }
 });
 
-router.get('/delete/:id', (req, res) => {
+router.get('/delete/:id', async (req, res) => {
     const id = req.params.id;
-    conexion.query('DELETE FROM errores WHERE id = ?',[id], (error, results)=>{
-        if(error){
-            console.log(error);
-        }else{           
-            res.redirect('/');         
-        }
-    })
+    let rs
+    try{
+        rs = await pool.query(`DELETE FROM errores WHERE id = ${id}`)
+        res.redirect('/');
+    }catch(e){
+        console.log(e)
+    }
 });
 
 router.post('/save', crud.save);
