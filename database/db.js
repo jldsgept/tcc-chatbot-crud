@@ -1,6 +1,5 @@
 const { Pool } = require('pg');
 
-
 const config = {
     host: 'ec2-54-159-176-167.compute-1.amazonaws.com',
     port: "5432",
@@ -11,7 +10,6 @@ const config = {
         rejectUnauthorized: false
     }
 }
-
 
 const pool = new Pool(config)
 
