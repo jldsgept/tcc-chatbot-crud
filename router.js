@@ -7,7 +7,7 @@ const pool = require('./database/db');
 router.get('/', async (req, res) => {     
     let rs 
     try{
-        rs = await pool.query('SELECT * FROM errores')
+        rs = await pool.query('SELECT * FROM errores ORDER BY 1')
         res.render('index.ejs', {results:rs.rows});
     }catch(e){
         console.log(e)
