@@ -5,7 +5,7 @@ const crud = require('./controllers/crud');
 const conexion = require('./database/db');
 
 router.get('/', (req, res)=>{     
-    conexion.query('SELECT * FROM users',(error, results)=>{
+    conexion.query('SELECT * FROM errores',(error, results)=>{
         if(error){
             throw error;
         } else {                       
@@ -20,18 +20,18 @@ router.get('/create', (req,res)=>{
 
 router.get('/edit/:id', (req,res)=>{    
     const id = req.params.id;
-    conexion.query('SELECT * FROM users WHERE id=?',[id] , (error, results) => {
+    conexion.query('SELECT * FROM errores WHERE id=?',[id] , (error, results) => {
         if (error) {
             throw error;
         }else{            
-            res.render('edit.ejs', {user:results[0]});            
+            res.render('edit.ejs', {registro_error:results[0]});            
         }        
     });
 });
 
 router.get('/delete/:id', (req, res) => {
     const id = req.params.id;
-    conexion.query('DELETE FROM users WHERE id = ?',[id], (error, results)=>{
+    conexion.query('DELETE FROM errores WHERE id = ?',[id], (error, results)=>{
         if(error){
             console.log(error);
         }else{           

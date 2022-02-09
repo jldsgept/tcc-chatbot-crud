@@ -30,20 +30,20 @@
         <thead>
           <tr class="bg-primary text-white">
             <th scope="col">ID</th>
-            <th scope="col">USUARIO</th>
-            <th scope="col">ROL</th>            
+            <th scope="col">CODIGO</th>
+            <th scope="col">DESCRIPCION</th>            
             <th scope="col">ACCIONES</th>            
           </tr>
         </thead>
         <tbody>
-          <% results.forEach((user)=>{ %>
+          <% results.forEach((err)=>{ %>
             <tr>  
-                <td><%= user.id %></td>  
-                <td><%= user.user %></td>
-                <td><%= user.rol %></td>
+                <td><%= err.id %></td>  
+                <td><%= err.codigo %></td>
+                <td><%= err.descripcion %></td>
                 <td>
-                  <a href="/edit/<%= user.id %>" class="btn btn-outline-info"><i class='bx bxs-edit'></i></a>
-                  <a href="/delete/<%= user.id %>" class="btn btn-outline-danger"><i class='bx bxs-trash-alt'></i></a>                   
+                  <a href="/edit/<%= err.id %>" class="btn btn-outline-info"><i class='bx bxs-edit'></i></a>
+                  <a href="/delete/<%= err.id %>" class="btn btn-outline-danger"><i class='bx bxs-trash-alt'></i></a>                   
                 </td>
             </tr>                                   
          <% }) %>

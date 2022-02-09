@@ -3,9 +3,9 @@ const pool = require('../database/db');
 
 //GUARDAR un REGISTRO
 exports.save = (req, res)=>{
-    const user = req.body.user;
-    const rol = req.body.rol;
-    pool.query('INSERT INTO users SET ?',{user:user, rol:rol}, (error, results)=>{
+    const codigo = req.body.codigo;
+    const descripcion = req.body.descripcion;
+    pool.query('INSERT INTO errores SET ?',{codigo:codigo, descripcion:descripcion}, (error, results)=>{
         if(error){
             console.log(error);
         }else{
@@ -17,13 +17,13 @@ exports.save = (req, res)=>{
 //ACTUALIZAR un REGISTRO
 exports.update = (req, res)=>{
     const id = req.body.id;
-    const user = req.body.user;
-    const rol = req.body.rol;
-    pool.query('UPDATE users SET ? WHERE id = ?',[{user:user, rol:rol}, id], (error, results)=>{
-        if(error){
+    const codigo = req.body.codigo;
+    const descripcion = req.body.descripcion;
+    pool.query('UPDATE errores SET ? WHERE id = ?', [{ codigo: codigo, descripcion: descripcion }, id], (error, results) => {
+        if (error) {
             console.log(error);
-        }else{           
-            res.redirect('/');         
+        } else {
+            res.redirect('/');
         }
     });
 };

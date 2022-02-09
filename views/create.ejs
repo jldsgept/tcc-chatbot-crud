@@ -29,15 +29,12 @@
                 <div class="card-body">
                     <form action="/save" method="POST">
                         <div class="mb-3">
-                        <label for="user" class="form-label">Usuario</label>
-                        <input type="text" class="form-control" id="user" name="user" tabindex="1">
+                          <label for="codigo" class="form-label">Codigo</label>
+                          <input type="text" class="form-control" id="codigo" name="codigo" tabindex="1">
                         </div>   
                         <div class="mb-3">
-                        <label for="user" class="form-label">Rol</label>
-                        <select id="rol" name="rol" class="form-select" aria-label="Default select example" tabindex="2">
-                            <option value="admin" selected>Admin</option>
-                            <option value="data entry">Data Entry</option>                    
-                        </select>
+                          <label for="descripcion" class="form-label">Descripcion</label>
+                          <input type="text" class="form-control" id="descripcion" name="descripcion" tabindex="2">
                         </div>                                   
                         <button type="submit" class="btn btn-primary" tabindex="5">Guardar</button>
                         <a href="/" class="btn btn-secondary">Cancelar</a>
