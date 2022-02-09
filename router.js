@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
+const crud = require('./controllers/crud');
 const conexion = require('./database/db');
 
 router.get('/', (req, res)=>{     
@@ -38,8 +39,6 @@ router.get('/delete/:id', (req, res) => {
         }
     })
 });
-
-const crud = require('./controllers/crud');
 
 router.post('/save', crud.save);
 router.post('/update', crud.update);
