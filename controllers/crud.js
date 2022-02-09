@@ -9,7 +9,6 @@ exports.save = (req, res)=>{
         if(error){
             console.log(error);
         }else{
-            //console.log(results);   
             res.redirect('/');         
         }
     });
@@ -26,5 +25,5 @@ exports.update = (req, res)=>{
         }else{           
             res.redirect('/');         
         }
-});
+    });
 };
