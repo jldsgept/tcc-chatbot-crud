@@ -4,6 +4,7 @@ const router = express.Router();
 const crud = require('./controllers/crud');
 const pool = require('./database/db');
 
+//raiz de la app
 router.get('/', async (req, res) => {     
     let rs 
     try{
