@@ -17,21 +17,12 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/">Servicios</a>
+                <a class="nav-link active" aria-current="page" href="/servicios">Servicios</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/">Clientes</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/">Errores</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/">Sugerencias</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/">Tickets</a>
-              </li>                             
-            </ul>                  
+                <a class="nav-link active" aria-current="page" href="/errores">Errores</a>
+              </li>                  
+            </ul>                     
           </div>
         </div>
       </nav>
@@ -39,7 +30,7 @@
             <div class="card border-secondary">  
                 <div class="card-header">Nuevo Registro</div>
                 <div class="card-body">
-                    <form action="/save" method="POST">
+                    <form action="/errores/save" method="POST">
                         <div class="mb-3">
                           <label for="codigo" class="form-label">Codigo</label>
                           <input type="text" class="form-control" id="codigo" name="codigo" tabindex="1">
@@ -49,7 +40,7 @@
                           <input type="text" class="form-control" id="descripcion" name="descripcion" tabindex="2">
                         </div>                                   
                         <button type="submit" class="btn btn-primary" tabindex="5">Guardar</button>
-                        <a href="/" class="btn btn-secondary">Cancelar</a>
+                        <a href="/errores" class="btn btn-secondary">Cancelar</a>
                     </form>
                 </div>
             </div>        

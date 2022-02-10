@@ -18,27 +18,18 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/">Servicios</a>
+                <a class="nav-link active" aria-current="page" href="/servicios">Servicios</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/">Clientes</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/">Errores</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/">Sugerencias</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/">Tickets</a>
-              </li>                             
+                <a class="nav-link active" aria-current="page" href="/errores">Errores</a>
+              </li>                  
             </ul>            
           </div>
         </div>
       </nav>
       <div  class="text-center" eblclass="container">
         <h3>Tabla: Errores</h3>    
-        <a href="/create" class="btn btn-outline-primary mt-4"><i class='bx bxs-plus-circle bx-md'></i></a>    
+        <a href="/errores/create" class="btn btn-outline-primary mt-4"><i class='bx bxs-plus-circle bx-md'></i></a>    
       <table class="table table-bordered table-striped text-center mt-4">
         <thead>
           <tr class="bg-primary text-white">
@@ -55,8 +46,8 @@
                 <td><%= err.codigo %></td>
                 <td><%= err.descripcion %></td>
                 <td>
-                  <a href="/edit/<%= err.id %>" class="btn btn-outline-info"><i class='bx bxs-edit'></i></a>
-                  <a href="/delete/<%= err.id %>" class="btn btn-outline-danger"><i class='bx bxs-trash-alt'></i></a>                   
+                  <a href="/errores/edit/<%= err.id %>" class="btn btn-outline-info"><i class='bx bxs-edit'></i></a>
+                  <a href="/errores/delete/<%= err.id %>" class="btn btn-outline-danger"><i class='bx bxs-trash-alt'></i></a>                   
                 </td>
             </tr>                                   
          <% }) %>

@@ -17,21 +17,12 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/">Servicios</a>
+                <a class="nav-link active" aria-current="page" href="/servicios">Servicios</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/">Clientes</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/">Errores</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/">Sugerencias</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/">Tickets</a>
-              </li>                             
-            </ul>            
+                <a class="nav-link active" aria-current="page" href="/errores">Errores</a>
+              </li>                  
+            </ul>               
           </div>
         </div>
       </nav> 
@@ -40,7 +31,7 @@
           <div class="card border-secondary">  
                 <div class="card-header">Editar Registro</div>
                 <div class="card-body">
-                    <form action="/update" method="POST">
+                    <form action="/errores/update" method="POST">
                         <input id="id" name="id" value="<%= registro_error.id %>" hidden>
 
                         <div class="mb-3">
@@ -54,7 +45,7 @@
                         </div> 
 
                         <button type="submit" class="btn btn-primary" tabindex="5">Guardar</button>
-                        <a href="/" class="btn btn-secondary">Cancelar</a>
+                        <a href="/errores" class="btn btn-secondary">Cancelar</a>
                     </form>      
                 </div>
             </div>     
