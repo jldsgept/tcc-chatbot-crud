@@ -54,3 +54,37 @@ exports.update_servicio = async (req, res) => {
         console.log(e)
     }
 };
+
+
+//GUARDAR un REGISTRO
+exports.save_cliente = async (req, res)=>{
+    const nombre = req.body.nombre;
+    const cedula = req.body.cedula;
+    const ruc = req.body.ruc;
+    const direccion = req.body.direccion;
+    const telefono = req.body.telefono;
+    let rs
+    try{
+        rs = await pool.query(`INSERT INTO clientes (nombre, cedula, ruc, direccion, telefono) VALUES ('${nombre}', '${cedula}', '${ruc}', '${direccion}', '${telefono}')`)
+        res.redirect('/clientes');
+    }catch(e){
+        console.log(e)
+    }
+};
+
+//ACTUALIZAR un REGISTRO
+exports.update_servicio = async (req, res) => {
+    const id = req.body.id;
+    const nombre = req.body.nombre;
+    const cedula = req.body.cedula;
+    const ruc = req.body.ruc;
+    const direccion = req.body.direccion;
+    const telefono = req.body.telefono;
+    let rs
+    try{
+        rs = await pool.query(`UPDATE clientes SET nombre = '${nombre}', cedula = '${cedula}', ruc = '${ruc}', direccion = '${direccion}', telefono = '${telefono}' WHERE id_clientes = ${id}`)
+        res.redirect('/clientes');
+    }catch(e){
+        console.log(e)
+    }
+};
