@@ -51,7 +51,12 @@
                         </div>   
                         <div class="mb-3">
                           <label for="prioridad" class="form-label">Prioridad</label>
-                          <input type="text" class="form-control" id="prioridad" name="prioridad" tabindex="3">
+                          <input list="prioridades" class="form-control" id="prioridad" name="prioridad" tabindex="3">
+                          <datalist id="prioridades">
+                            <option value="URGENTE">
+                            <option value="MEDIA">
+                            <option value="LEVE">
+                          </datalist>
                         </div>                                
                         <button type="submit" class="btn btn-primary" tabindex="5">Guardar</button>
                         <a href="/tickets" class="btn btn-secondary">Cancelar</a>
