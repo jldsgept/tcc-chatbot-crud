@@ -13,7 +13,7 @@ router.get('/', async (req, res) => {
     }catch(e){
         console.log(e)
     }
-})
+});
 
 router.get('/servicios', async (req, res) => {     
     let rs 
@@ -23,7 +23,7 @@ router.get('/servicios', async (req, res) => {
     }catch(e){
         console.log(e)
     }
-})
+});
 
 router.get('/clientes', async (req, res) => {     
     let rs 
@@ -33,7 +33,7 @@ router.get('/clientes', async (req, res) => {
     }catch(e){
         console.log(e)
     }
-})
+});
 
 router.get('/errores', async (req, res) => {     
     let rs 
@@ -43,7 +43,7 @@ router.get('/errores', async (req, res) => {
     }catch(e){
         console.log(e)
     }
-})
+});
 
 router.get('/sugerencias', async (req, res) => {     
     let rs 
@@ -53,7 +53,7 @@ router.get('/sugerencias', async (req, res) => {
     }catch(e){
         console.log(e)
     }
-})
+});
 
 router.get('/tickets', async (req, res) => {     
     let rs 
@@ -63,14 +63,40 @@ router.get('/tickets', async (req, res) => {
     }catch(e){
         console.log(e)
     }
-})
+});
 
 
-
+router.get('/servicios/create', (req,res)=>{
+    res.render('create_servicios');
+});
+router.get('/clientes/create', (req,res)=>{
+    res.render('create_clientes');
+});
 router.get('/errores/create', (req,res)=>{
     res.render('create');
-})
+});
 
+
+router.get('/servicios/edit/:id', async (req,res)=>{    
+    const id = req.params.id;
+    let rs
+    try{
+        rs = await pool.query(`SELECT * FROM servicios WHERE id_servicios = ${id}`)
+        res.render('edit_servicios', {servicio: rs.rows[0]});
+    }catch(e){
+        console.log(e)
+    }
+});
+router.get('/clientes/edit/:id', async (req,res)=>{    
+    const id = req.params.id;
+    let rs
+    try{
+        rs = await pool.query(`SELECT * FROM clientes WHERE id_clientes = ${id}`)
+        res.render('edit_clientes', {servicio: rs.rows[0]});
+    }catch(e){
+        console.log(e)
+    }
+});
 router.get('/errores/edit/:id', async (req,res)=>{    
     const id = req.params.id;
     let rs
@@ -82,6 +108,17 @@ router.get('/errores/edit/:id', async (req,res)=>{
     }
 });
 
+
+router.get('/servicios/delete/:id', async (req, res) => {
+    const id = req.params.id;
+    let rs
+    try{
+        rs = await pool.query(`DELETE FROM servicios WHERE id_servicios = ${id}`)
+        res.redirect('/servicios');
+    }catch(e){
+        console.log(e)
+    }
+});
 router.get('/errores/delete/:id', async (req, res) => {
     const id = req.params.id;
     let rs
@@ -94,40 +131,11 @@ router.get('/errores/delete/:id', async (req, res) => {
 });
 
 
-
-
-
-router.get('/servicios/create', (req,res)=>{
-    res.render('create_servicios');
-})
-
-router.get('/servicios/edit/:id', async (req,res)=>{    
-    const id = req.params.id;
-    let rs
-    try{
-        rs = await pool.query(`SELECT * FROM servicios WHERE id_servicios = ${id}`)
-        res.render('edit_servicios', {servicio: rs.rows[0]});
-    }catch(e){
-        console.log(e)
-    }
-});
-
-router.get('/servicios/delete/:id', async (req, res) => {
-    const id = req.params.id;
-    let rs
-    try{
-        rs = await pool.query(`DELETE FROM servicios WHERE id_servicios = ${id}`)
-        res.redirect('/servicios');
-    }catch(e){
-        console.log(e)
-    }
-});
-
-
-
-router.post('/errores/save', crud.save_error);
-router.post('/errores/update', crud.update_error);
 router.post('/servicios/save', crud.save_servicio);
 router.post('/servicios/update', crud.update_servicio);
+router.post('/clientes/save', crud.save_cliente);
+router.post('/clientes/update', crud.update_cliente);
+router.post('/errores/save', crud.save_error);
+router.post('/errores/update', crud.update_error);
 
 module.exports = router;
