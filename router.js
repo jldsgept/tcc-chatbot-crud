@@ -45,6 +45,16 @@ router.get('/errores', async (req, res) => {
     }
 })
 
+router.get('/sugerencias', async (req, res) => {     
+    let rs 
+    try{
+        rs = await pool.query('SELECT se.id, e.codigo, se.descripcion FROM sugerencias_errores se inner join errores e on (e.id = se.id_errores) order by e.codigo')
+        res.render('index_sugerencias', {results:rs.rows});
+    }catch(e){
+        console.log(e)
+    }
+})
+
 
 
 router.get('/errores/create', (req,res)=>{
