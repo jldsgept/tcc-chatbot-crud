@@ -25,6 +25,16 @@ router.get('/servicios', async (req, res) => {
     }
 })
 
+router.get('/clientes', async (req, res) => {     
+    let rs 
+    try{
+        rs = await pool.query('SELECT * FROM clientes ORDER BY nombre')
+        res.render('index_clientes', {results:rs.rows});
+    }catch(e){
+        console.log(e)
+    }
+})
+
 router.get('/errores', async (req, res) => {     
     let rs 
     try{
