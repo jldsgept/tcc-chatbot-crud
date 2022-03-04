@@ -89,7 +89,18 @@ exports.update_cliente = async (req, res) => {
     }
 };
 
-
+//GUARDAR un REGISTRO
+exports.save_sugerencia = async (req, res)=>{
+    const codigo = req.body.codigo;
+    const descripcion = req.body.descripcion;
+    let rs
+    try{
+        rs = await pool.query(`select p_inserta_sugerencia ('${codigo}', '${descripcion}')`)
+        res.redirect('/sugerencias');
+    }catch(e){
+        console.log(e)
+    }
+};
 
 //ACTUALIZAR un REGISTRO
 exports.update_sugerencia = async (req, res) => {
