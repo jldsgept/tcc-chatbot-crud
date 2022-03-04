@@ -196,5 +196,7 @@ router.post('/errores/save', crud.save_error);
 router.post('/errores/update', crud.update_error);
 router.post('/sugerencias/save', crud.save_sugerencia);
 router.post('/sugerencias/update', crud.update_sugerencia);
+router.post('/tickets/save', crud.save_ticket);
+router.post('/tickets/update', crud.update_ticket);
 
 module.exports = router;

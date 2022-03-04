@@ -114,3 +114,33 @@ exports.update_sugerencia = async (req, res) => {
         console.log(e)
     }
 };
+
+
+//GUARDAR un REGISTRO
+exports.save_ticket = async (req, res)=>{
+    const cedula = req.body.cedula;
+    const descripcion = req.body.descripcion;
+    const prioridad = req.body.prioridad;
+    let rs
+    try{
+        rs = await pool.query(`select p_inserta_ticket ('${cedula}', 1, '${descripcion}', '${prioridad}')`)
+        res.redirect('/tickets');
+    }catch(e){
+        console.log(e)
+    }
+};
+
+//ACTUALIZAR un REGISTRO
+exports.update_ticket = async (req, res) => {
+    const id = req.body.id;
+    const descripcion = req.body.descripcion;
+    const estado = req.body.estado;
+    const departamento = req.body.departamento;
+    let rs
+    try{
+        rs = await pool.query(`UPDATE tickets SET descripcion = '${descripcion}', id_departamentos = ${departamento}, abierto = ${estado} WHERE id = ${id}`)
+        res.redirect('/tickets');
+    }catch(e){
+        console.log(e)
+    }
+};
