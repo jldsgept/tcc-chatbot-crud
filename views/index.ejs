@@ -7,29 +7,39 @@
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <title>CRUDs del TCC </title>
 </head>
+
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">        
-    <nav class="navbar navbar-dark">      
-      </nav>            
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/servicios">Servicios</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/errores">Errores</a>
-              </li>                  
-            </ul>            
-          </div>
+      <div class="container-fluid">        
+        <nav class="navbar navbar-dark"></nav>            
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/servicios">Servicios</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/clientes">Clientes</a>
+            </li> 
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/errores">Errores</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/sugerencias">Sugerencias</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/tickets">Tickets</a>
+            </li>                 
+          </ul>            
         </div>
-      </nav>
-      <div  class="text-center" eblclass="container">
-        <h3>Tabla: Errores</h3>    
-        <a href="/errores/create" class="btn btn-outline-primary mt-4"><i class='bx bxs-plus-circle bx-md'></i></a>    
+      </div>
+    </nav>
+
+    <div  class="text-center" eblclass="container">
+      <h3>Tabla: Errores</h3>    
+      <a href="/errores/create" class="btn btn-outline-primary mt-4"><i class='bx bxs-plus-circle bx-md'></i></a>    
       <table class="table table-bordered table-striped text-center mt-4">
         <thead>
           <tr class="bg-primary text-white">
@@ -53,7 +63,8 @@
          <% }) %>
         </tbody>
       </table>
-      </div>
-   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>    
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>    
 </body>
+
 </html>

@@ -64,6 +64,9 @@ router.get('/errores/delete/:id', async (req, res) => {
 });
 
 
+
+
+
 router.get('/servicios/create', (req,res)=>{
     res.render('create_servicios');
 })
@@ -89,6 +92,8 @@ router.get('/servicios/delete/:id', async (req, res) => {
         console.log(e)
     }
 });
+
+
 
 router.post('/errores/save', crud.save_error);
 router.post('/errores/update', crud.update_error);
