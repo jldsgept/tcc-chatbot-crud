@@ -194,5 +194,6 @@ router.post('/clientes/save', crud.save_cliente);
 router.post('/clientes/update', crud.update_cliente);
 router.post('/errores/save', crud.save_error);
 router.post('/errores/update', crud.update_error);
+router.post('/sugerencias/update', crud.update_sugerencia);
 
 module.exports = router;

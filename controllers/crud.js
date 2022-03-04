@@ -88,3 +88,18 @@ exports.update_cliente = async (req, res) => {
         console.log(e)
     }
 };
+
+
+
+//ACTUALIZAR un REGISTRO
+exports.update_sugerencia = async (req, res) => {
+    const id = req.body.id;
+    const descripcion = req.body.descripcion;
+    let rs
+    try{
+        rs = await pool.query(`UPDATE sugerencias_errores SET descripcion = '${descripcion}' WHERE id = ${id}`)
+        res.redirect('/sugerencias');
+    }catch(e){
+        console.log(e)
+    }
+};
