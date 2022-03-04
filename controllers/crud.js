@@ -73,7 +73,7 @@ exports.save_cliente = async (req, res)=>{
 };
 
 //ACTUALIZAR un REGISTRO
-exports.update_servicio = async (req, res) => {
+exports.update_cliente = async (req, res) => {
     const id = req.body.id;
     const nombre = req.body.nombre;
     const cedula = req.body.cedula;

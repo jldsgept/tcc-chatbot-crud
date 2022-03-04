@@ -92,7 +92,7 @@ router.get('/clientes/edit/:id', async (req,res)=>{
     let rs
     try{
         rs = await pool.query(`SELECT * FROM clientes WHERE id_clientes = ${id}`)
-        res.render('edit_clientes', {servicio: rs.rows[0]});
+        res.render('edit_clientes', {cliente: rs.rows[0]});
     }catch(e){
         console.log(e)
     }
@@ -115,6 +115,16 @@ router.get('/servicios/delete/:id', async (req, res) => {
     try{
         rs = await pool.query(`DELETE FROM servicios WHERE id_servicios = ${id}`)
         res.redirect('/servicios');
+    }catch(e){
+        console.log(e)
+    }
+});
+router.get('/clientes/delete/:id', async (req, res) => {
+    const id = req.params.id;
+    let rs
+    try{
+        rs = await pool.query(`DELETE FROM clientes WHERE id_clientes = ${id}`)
+        res.redirect('/clientes');
     }catch(e){
         console.log(e)
     }
