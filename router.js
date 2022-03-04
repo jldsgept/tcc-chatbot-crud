@@ -55,6 +55,16 @@ router.get('/sugerencias', async (req, res) => {
     }
 })
 
+router.get('/tickets', async (req, res) => {     
+    let rs 
+    try{
+        rs = await pool.query('select * from v_tickets')
+        res.render('index_tickets', {results:rs.rows});
+    }catch(e){
+        console.log(e)
+    }
+})
+
 
 
 router.get('/errores/create', (req,res)=>{
