@@ -58,7 +58,7 @@ router.get('/sugerencias', async (req, res) => {
 router.get('/tickets', async (req, res) => {     
     let rs 
     try{
-        rs = await pool.query('select * from v_tickets')
+        rs = await pool.query('select * from v_tickets order by id desc')
         res.render('index_tickets', {results:rs.rows});
     }catch(e){
         console.log(e)
